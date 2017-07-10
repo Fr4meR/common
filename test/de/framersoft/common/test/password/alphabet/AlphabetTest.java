@@ -64,4 +64,33 @@ public class AlphabetTest {
 		assertNotEquals("the letters in the alphabet should'nt be the same", "abcd", alphabet.getLetters());
 	}
 
+	/**
+	 * tests if the preset Alphabet with a-z is
+	 * created correctly
+	 * @author Tobias Hess
+	 * @since 10.07.2017
+	 */
+	@Test
+	public void testGetAlphabetAToZLowerCase() {
+		Alphabet a = Alphabet.getAlphabetAToZLowerCase();
+		assertEquals(AlphabetConstants.ALPHABET_A_TO_Z_LOWERCASE, a.getLetters());
+		assertNotEquals(AlphabetConstants.ALPHABET_A_TO_Z_UPPERCASE, a.getLetters());
+		assertNotEquals("abcde", a.getLetters());
+		assertNotEquals("123", a.getLetters());
+	}
+	
+	/**
+	 * tests if the preset Alphabet with A-Z is
+	 * created correctly
+	 * @author Tobias Hess
+	 * @since 10.07.2017
+	 */
+	@Test
+	public void testGetAlphabetAToZUpperCase() {
+		Alphabet a = Alphabet.getAlphabetAToZUpperCase();
+		assertEquals(AlphabetConstants.ALPHABET_A_TO_Z_UPPERCASE, a.getLetters());
+		assertNotEquals(AlphabetConstants.ALPHABET_A_TO_Z_LOWERCASE, a.getLetters());
+		assertNotEquals("abcde", a.getLetters());
+		assertNotEquals("123", a.getLetters());
+	}
 }

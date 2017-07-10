@@ -2,6 +2,8 @@ package de.framersoft.common.password.alphabet;
 
 import java.security.InvalidParameterException;
 
+import de.framersoft.common.constants.AlphabetConstants;
+
 /**
  * This class represents an alphabet
  * @author Tobias Hess
@@ -82,5 +84,31 @@ public class Alphabet {
 	 */
 	public String getLetters() {
 		return this.letters;
+	}
+	
+	/**
+	 * creates an instance of {@link Alphabet} with the letters
+	 * A-Z 
+	 * @author Tobias Hess
+	 * @since 10.07.2017
+	 * @return 
+	 * 		an instance of {@link Alphabet} with the letters
+	 * 		A-Z
+	 */
+	public static Alphabet getAlphabetAToZUpperCase() {
+		return new Alphabet(AlphabetConstants.ALPHABET_A_TO_Z_UPPERCASE);
+	}
+	
+	/**
+	 * creates an instance of {@link Alphabet} with the letters
+	 * a-z 
+	 * @author Tobias Hess
+	 * @since 10.07.2017
+	 * @return 
+	 * 		an instance of {@link Alphabet} with the letters
+	 * 		a-z
+	 */
+	public static Alphabet getAlphabetAToZLowerCase() {
+		return new Alphabet(AlphabetConstants.ALPHABET_A_TO_Z_LOWERCASE);
 	}
 }
