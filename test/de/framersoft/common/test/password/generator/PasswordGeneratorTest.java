@@ -195,7 +195,7 @@ public class PasswordGeneratorTest {
 	 * 		the {@link PasswordGenerator} to check
 	 */
 	private void checkPasswordGeneration(PasswordGenerator pg) {
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < 250; i++) {
 			String password = pg.generatePassword();
 			assertEquals(pg.getLength(), password.length());
 			

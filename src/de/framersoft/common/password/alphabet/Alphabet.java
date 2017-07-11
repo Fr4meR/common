@@ -10,7 +10,7 @@ import de.framersoft.common.constants.AlphabetConstants;
  * @author Tobias Hess
  * @since 10.07.2017
  */
-public class Alphabet implements Comparable<Alphabet>{
+public class Alphabet implements AlphabetConstants, Comparable<Alphabet>{
 	
 	/**
 	 * the string of letters that is used by the 

@@ -6,6 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import de.framersoft.common.test.password.alphabet.AlphabetTest;
 import de.framersoft.common.test.password.generator.PasswordGeneratorTest;
+import de.framersoft.common.test.password.strength.PasswordStrengthTest;
 
 /**
  * test suite that runs every test
@@ -15,7 +16,8 @@ import de.framersoft.common.test.password.generator.PasswordGeneratorTest;
 @RunWith(Suite.class)
 @SuiteClasses({
 	AlphabetTest.class,
-	PasswordGeneratorTest.class
+	PasswordGeneratorTest.class,
+	PasswordStrengthTest.class
 })
 public class AllTests {
 

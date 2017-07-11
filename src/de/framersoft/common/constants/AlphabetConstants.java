@@ -75,4 +75,18 @@ public interface AlphabetConstants {
 	 * @since 11.07.2017
 	 */
 	public final static String ALPHABET_UMLAUTE = ALPHABET_UMLAUTE_LOWERCASE + ALPHABET_UMLAUTE_UPPERCASE;
+	
+	/**
+	 * alphabet containing punctuation characters
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 */
+	public final static String ALPHABET_PUNCTUATION = ".,:;-_";
+	
+	/**
+	 * alphaber: special characters
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 */
+	public final static String ALPHABET_SPECIAL_CHARACTERS = "!\"§$%&/()=?+#*~'\\}][{";
 }
