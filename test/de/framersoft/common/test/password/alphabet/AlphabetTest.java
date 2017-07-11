@@ -52,6 +52,23 @@ public class AlphabetTest {
 	}
 
 	/**
+	 * tests the method {@link Alphabet#isSpeakingAlphabet()}
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 */
+	@Test
+	public void testIsSpeakingAlphabet() {
+		Alphabet alphabet = new Alphabet("abcedefggehkasd");
+		assertTrue(alphabet.isSpeakingAlphabet());
+		
+		alphabet = new Alphabet(AlphabetConstants.ALPHABET_ALPHANUMERIC);
+		assertFalse(alphabet.isSpeakingAlphabet());
+		
+		alphabet = new Alphabet(AlphabetConstants.ALPHABET_UMLAUTE);
+		assertFalse(alphabet.isSpeakingAlphabet());
+	}
+	
+	/**
 	 * tests the method {@link Alphabet#getLetters()}
 	 * @author Tobias Hess
 	 * @since 10.07.2017
@@ -64,6 +81,92 @@ public class AlphabetTest {
 		assertNotEquals("the letters in the alphabet should'nt be the same", "abcd", alphabet.getLetters());
 	}
 
+	/**
+	 * tests the method {@link Alphabet#getRandomLetter()}
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 */
+	@Test
+	public void testGetRandomLetter() {
+		String letters = AlphabetConstants.ALPHABET_A_TO_Z_LOWERCASE + AlphabetConstants.ALPHABET_A_TO_Z_UPPERCASE;
+		Alphabet a = new Alphabet(letters);
+		
+		//generate a 1000 letters and check if they are valid
+		for(int i = 0; i < 1000; i++) {
+			char c = a.getRandomLetter();
+			assertNotEquals(-1, letters.indexOf(c));
+		}
+	}
+	
+	/**
+	 * tests the method {@link Alphabet#getRandomConsonant()}
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 */
+	@Test
+	public void testGetRandomConsonant() {
+		String letters = "aiou";
+		Alphabet a = new Alphabet("abcdfghiklmnopqrstuvwxyz");
+		
+		//generate a 1000 letters and check if they are valid
+		for(int i = 0; i < 1000; i++) {
+			char c = a.getRandomConsonant();
+			assertNotEquals(-1, letters.indexOf(c));
+		}
+	}
+	
+	/**
+	 * tests the method {@link Alphabet#getRandomVocal()}
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 */
+	@Test
+	public void testGetRandomVocal() {
+		String letters = "cdfg";
+		Alphabet a = new Alphabet("acdfgeiou");
+		
+		//generate a 1000 letters and check if they are valid
+		for(int i = 0; i < 1000; i++) {
+			char c = a.getRandomVocal();
+			assertNotEquals(-1, letters.indexOf(c));
+		}
+	}
+	
+	/**
+	 * tests the method {@link Alphabet#getIntersectionAlphabet(Alphabet)}
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 */
+	@Test
+	public void testGetIntersectionAlphabet() {
+		Alphabet a1 = Alphabet.getAlphabetAToZLowerCase();
+		Alphabet i = a1.getIntersectionAlphabet(new Alphabet("adeX"));
+		assertEquals("ade", i.getLetters());
+		
+		boolean thrown = false;
+		try {
+			a1.getIntersectionAlphabet(new Alphabet("1234"));
+		}
+		catch (IllegalStateException e) {
+			thrown = true;
+		}
+		assertTrue("exception did not get thrown!", thrown);
+	}
+	
+	/**
+	 * tests the method {@link Alphabet#compareTo(Alphabet)}
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 */
+	@Test
+	public void testCompareTo() {
+		Alphabet a1 = Alphabet.getAlphabetAToZLowerCase();
+		Alphabet a2 = Alphabet.getAlphabetAToZUpperCase();
+		
+		assertEquals(0, a1.compareTo(a1));
+		assertTrue(a1.compareTo(a2) > 0);
+	}
+	
 	/**
 	 * tests if the preset Alphabet with a-z is
 	 * created correctly
@@ -92,5 +195,37 @@ public class AlphabetTest {
 		assertNotEquals(AlphabetConstants.ALPHABET_A_TO_Z_LOWERCASE, a.getLetters());
 		assertNotEquals("abcde", a.getLetters());
 		assertNotEquals("123", a.getLetters());
+	}
+	
+	/**
+	 * tests if the preset Alphabet with only consonants
+	 * created correctly
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 */
+	@Test
+	public void testGetAlphabetConsonants() {
+		Alphabet a = Alphabet.getAlphabetConsonants();
+		assertEquals(AlphabetConstants.ALPHABET_CONSONANTS, a.getLetters());
+		assertNotEquals(AlphabetConstants.ALPHABET_A_TO_Z_LOWERCASE, a.getLetters());
+		assertNotEquals("abcde", a.getLetters());
+		assertNotEquals("123", a.getLetters());
+		assertNotEquals(AlphabetConstants.ALPHABET_VOCALS, a.getLetters());
+	}
+	
+	/**
+	 * tests if the preset Alphabet with only consonants
+	 * created correctly
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 */
+	@Test
+	public void testGetAlphabetVocals() {
+		Alphabet a = Alphabet.getAlphabetVocals();
+		assertEquals(AlphabetConstants.ALPHABET_VOCALS, a.getLetters());
+		assertNotEquals(AlphabetConstants.ALPHABET_A_TO_Z_LOWERCASE, a.getLetters());
+		assertNotEquals("abcde", a.getLetters());
+		assertNotEquals("123", a.getLetters());
+		assertNotEquals(AlphabetConstants.ALPHABET_CONSONANTS, a.getLetters());
 	}
 }

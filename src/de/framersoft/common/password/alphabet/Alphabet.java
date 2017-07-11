@@ -1,6 +1,7 @@
 package de.framersoft.common.password.alphabet;
 
 import java.security.InvalidParameterException;
+import java.util.Random;
 
 import de.framersoft.common.constants.AlphabetConstants;
 
@@ -9,7 +10,7 @@ import de.framersoft.common.constants.AlphabetConstants;
  * @author Tobias Hess
  * @since 10.07.2017
  */
-public class Alphabet {
+public class Alphabet implements Comparable<Alphabet>{
 	
 	/**
 	 * the string of letters that is used by the 
@@ -56,6 +57,104 @@ public class Alphabet {
 		}
 		
 		return inAlphabet;	
+	}
+	
+	/**
+	 * checks if the alphabet is a speaking alphabet.
+	 * speaking means that a random character from the 
+	 * alphabet is either an consonant or an vocal.
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 * @return
+	 * 		true if the alphabet is speaking, false otherwise.
+	 */
+	public boolean isSpeakingAlphabet() {
+		Alphabet speakable = new Alphabet(AlphabetConstants.ALPHABET_A_TO_Z);
+		
+		boolean isSpeakable = true;
+		for(int i = 0; i < getLetters().length(); i++) {
+			char c = getLetters().charAt(i);
+			if(!speakable.isLetterInAlphabet(c)) {
+				isSpeakable = false;
+			}
+		}
+		return isSpeakable;
+	}
+	
+	/**
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 * @return
+	 * 		a random letter from the alphabet
+	 */
+	public char getRandomLetter() {
+		 final Random r = new Random();
+		 final int i = r.nextInt(getLetters().length());
+		 
+		 return getLetters().charAt(i);
+	}
+	
+	/**
+	 * returns a random consonant from the Alphabet
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 * @throws IllegalStateException
+	 * 		thrown if no consonants are in the Alphabet
+	 * @return
+	 * 		random consonant from the Alphabet
+	 */
+	public char getRandomConsonant() {
+		//get the consonants of the alphabet
+		Alphabet consonants = getIntersectionAlphabet(Alphabet.getAlphabetConsonants());
+		return consonants.getRandomLetter();
+	}
+	
+	/**
+	 * returns a random vocal from the Alphabet
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 * @throws IllegalStateException
+	 * 		thrown if no vocals are in the Alphabet
+	 * @return
+	 * 		random vocal from the Alphabet
+	 */
+	public char getRandomVocal() {
+		//get the consonants of the alphabet
+		Alphabet vocals = getIntersectionAlphabet(Alphabet.getAlphabetVocals());
+		return vocals.getRandomLetter();
+	}
+	
+	/**
+	 * gets an {@link Alphabet} representing the intersection with
+	 * the given {@link Alphabet} a
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 * @param a
+	 * 		{@link Alphabet} to intersect with
+	 * @throws IllegalStateException
+	 * 		gets thrown if the resulting alphabet would be empty
+	 * @return
+	 * 		{@link Alphabet} containing the letters that are in both
+	 * 		Alphabets
+	 */
+	public Alphabet getIntersectionAlphabet(Alphabet a) {		
+		StringBuilder sb = new StringBuilder();
+		
+		//extract the consonants from the letters
+		for(int i = 0; i < a.getLetters().length(); i++) {
+			char letter = a.getLetters().charAt(i);
+			
+			if(isLetterInAlphabet(letter)) {
+				sb.append(letter);
+			}
+		}
+		
+		//if no letters are in the alphabet throw an exception
+		if(sb.length() <= 0) {
+			throw new IllegalStateException("in the alphabet '" + getLetters() + "' are no occurences of '" + a.getLetters() + "'");
+		}
+		
+		return new Alphabet(sb.toString());
 	}
 	
 	/**
@@ -110,5 +209,37 @@ public class Alphabet {
 	 */
 	public static Alphabet getAlphabetAToZLowerCase() {
 		return new Alphabet(AlphabetConstants.ALPHABET_A_TO_Z_LOWERCASE);
+	}
+	
+	/**
+	 * creates an instance of {@link Alphabet} containing
+	 * only consonants
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 * @return
+	 * 		{@link Alphabet} containing only consonants
+	 */
+	public static Alphabet getAlphabetConsonants() {
+		return new Alphabet(AlphabetConstants.ALPHABET_CONSONANTS);
+	}
+	
+	/**
+	 * creates an instance of {@link Alphabet} containing 
+	 * only vocals
+	 * @author Tobias Hess
+	 * @since 11.07.2017
+	 * @return
+	 * 		{@link Alphabet} containing only vocals
+	 */
+	public static Alphabet getAlphabetVocals() {
+		return new Alphabet(AlphabetConstants.ALPHABET_VOCALS);
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	@Override
+	public int compareTo(Alphabet o) {
+		return getLetters().compareTo(o.getLetters());
 	}
 }
