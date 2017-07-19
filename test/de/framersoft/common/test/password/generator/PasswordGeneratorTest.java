@@ -212,6 +212,7 @@ public class PasswordGeneratorTest {
 	private void checkPasswordGeneration(PasswordGenerator pg) {
 		for(int i = 0; i < 250; i++) {
 			String password = pg.generatePassword();
+			System.out.println(password);
 			assertEquals(pg.getLength(), password.length());
 			
 			//split password in the 3 sections
@@ -253,6 +254,62 @@ public class PasswordGeneratorTest {
 	@Test
 	public void testGetInternetPasswordGenerator() {
 		PasswordGenerator pg = PasswordGenerator.getInternetPasswordGenerator(12);
+		checkPasswordGeneration(pg);
+	}
+	
+	/**
+	 * tests the preset for wep keys with 64bit
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 */
+	@Test
+	public void testGet64BitWEPKeyGenerator() {
+		PasswordGenerator pg = PasswordGenerator.get64BitWEPKeyGenerator();
+		checkPasswordGeneration(pg);
+	}
+	
+	/**
+	 * tests the preset for wep keys with 128bit
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 */
+	@Test
+	public void testGet128BitWEPKeyGenerator() {
+		PasswordGenerator pg = PasswordGenerator.get128BitWEPKeyGenerator();
+		checkPasswordGeneration(pg);
+	}
+	
+	/**
+	 * tests the preset for wep keys with 256bit
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 */
+	@Test
+	public void testGet256BitWEPKeyGenerator() {
+		PasswordGenerator pg = PasswordGenerator.get256BitWEPKeyGenerator();
+		checkPasswordGeneration(pg);
+	}
+	
+	/**
+	 * tests the preset for wpa2 keys
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 */
+	@Test
+	public void testGetWPA2KeyGenerator() {
+		PasswordGenerator pg = PasswordGenerator.getWPA2KeyGenerator();
+		checkPasswordGeneration(pg);
+	}
+	
+	/**
+	 * tests the preset for random generated passwords with alphanumeric,
+	 * punctuation and special characters
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 */
+	@Test
+	public void testGetRandomPasswordGenerator() {
+		PasswordGenerator pg = PasswordGenerator.getRandomPasswordGenerator(12);
 		checkPasswordGeneration(pg);
 	}
 }

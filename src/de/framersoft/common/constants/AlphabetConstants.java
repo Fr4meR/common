@@ -104,4 +104,11 @@ public interface AlphabetConstants {
 	 * @since 11.07.2017
 	 */
 	public final static String ALPHABET_SPECIAL_CHARACTERS = "!\"§$%&/()=?+#*~'\\}][{";
+	
+	/**
+	 * alphabet: charecters of a hexadezimal number
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 */
+	public final static String ALPHABET_HEXADECIMAL_CHARACTERS = "abcdef1234567890";
 }

@@ -370,4 +370,83 @@ public class PasswordGenerator {
 		
 		return pg;
 	}
+	
+	/**
+	 * creates a {@link PasswordGenerator} instance to generate
+	 * 64bit WEP keys with
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 * @return
+	 * 		{@link PasswordGenerator} instance
+	 */
+	public static PasswordGenerator get64BitWEPKeyGenerator() {
+		PasswordGenerator pg = new PasswordGenerator(AlphabetConstants.ALPHABET_HEXADECIMAL_CHARACTERS , 10);
+		pg.setSpeakingPassword(false);
+		
+		return pg;
+	}
+	
+	/**
+	 * creates a {@link PasswordGenerator} instance to generate
+	 * 128bit WEP keys with
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 * @return
+	 * 		{@link PasswordGenerator} instance
+	 */
+	public static PasswordGenerator get128BitWEPKeyGenerator() {
+		PasswordGenerator pg = new PasswordGenerator(AlphabetConstants.ALPHABET_HEXADECIMAL_CHARACTERS , 26);
+		pg.setSpeakingPassword(false);
+		
+		return pg;
+	}
+	
+	/**
+	 * creates a {@link PasswordGenerator} instance to generate
+	 * 256bit WEP keys with
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 * @return
+	 * 		{@link PasswordGenerator} instance
+	 */
+	public static PasswordGenerator get256BitWEPKeyGenerator() {
+		PasswordGenerator pg = new PasswordGenerator(AlphabetConstants.ALPHABET_HEXADECIMAL_CHARACTERS , 58);
+		pg.setSpeakingPassword(false);
+		
+		return pg;
+	}
+	
+	/**
+	 * creates a {@link PasswordGenerator} instance to generate
+	 * WPA2 keys with
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 * @return
+	 * 		{@link PasswordGenerator} instance
+	 */
+	public static PasswordGenerator getWPA2KeyGenerator() {
+		PasswordGenerator pg = new PasswordGenerator(AlphabetConstants.ALPHABET_ALPHANUMERIC, 63);
+		pg.setSpeakingPassword(false);
+		
+		return pg;
+	}
+	
+	/**
+	 * creates a {@link PasswordGenerator} instance to generate
+	 * random passwords containing alphanumeric, punctuation and
+	 * special characters
+	 * @author Tobias Hess
+	 * @since 19.07.2017
+	 * @param length
+	 * 		the length of the password to generate
+	 * @return
+	 * 		{@link PasswordGenerator} instance
+	 */
+	public static PasswordGenerator getRandomPasswordGenerator(int length) {
+		PasswordGenerator pg = new PasswordGenerator(AlphabetConstants.ALPHABET_ALPHANUMERIC + 
+				AlphabetConstants.ALPHABET_PUNCTUATION + AlphabetConstants.ALPHABET_SPECIAL_CHARACTERS, length);
+		pg.setSpeakingPassword(false);
+		
+		return pg;
+	}
 }
