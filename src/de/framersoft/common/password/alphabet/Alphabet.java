@@ -36,6 +36,14 @@ public class Alphabet implements AlphabetConstants, Comparable<Alphabet>{
 	private String letters = "";
 	
 	/**
+	 * a pseudo random number generator, that is used to
+	 * retrieve random elements out of the Alphabet.
+	 * @author Tobias Hess
+	 * @since 21.07.2017
+	 */
+	private Random random = null;
+	
+	/**
 	 * constructor 1
 	 * @author Tobias Hess
 	 * @since 10.07.2017
@@ -103,8 +111,10 @@ public class Alphabet implements AlphabetConstants, Comparable<Alphabet>{
 	 * 		a random letter from the alphabet
 	 */
 	public char getRandomLetter() {
-		 final Random r = new Random();
-		 final int i = r.nextInt(getLetters().length());
+		 if(random == null) {
+			 random = new Random();
+		 }
+		 final int i = random.nextInt(getLetters().length());
 		 
 		 return getLetters().charAt(i);
 	}
