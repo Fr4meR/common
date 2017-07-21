@@ -16,7 +16,7 @@
 package de.framersoft.common.password.alphabet;
 
 import java.security.InvalidParameterException;
-import java.util.Random;
+import java.security.SecureRandom;
 
 import de.framersoft.common.constants.AlphabetConstants;
 
@@ -36,12 +36,12 @@ public class Alphabet implements AlphabetConstants, Comparable<Alphabet>{
 	private String letters = "";
 	
 	/**
-	 * a pseudo random number generator, that is used to
+	 * a cryptographically strong random number generator, that is used to
 	 * retrieve random elements out of the Alphabet.
 	 * @author Tobias Hess
 	 * @since 21.07.2017
 	 */
-	private Random random = null;
+	private SecureRandom random = null;
 	
 	/**
 	 * constructor 1
@@ -112,7 +112,7 @@ public class Alphabet implements AlphabetConstants, Comparable<Alphabet>{
 	 */
 	public char getRandomLetter() {
 		 if(random == null) {
-			 random = new Random();
+			 random = new SecureRandom();
 		 }
 		 final int i = random.nextInt(getLetters().length());
 		 
