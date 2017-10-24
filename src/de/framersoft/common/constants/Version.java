@@ -28,7 +28,7 @@ public interface Version {
 	 * @author Tobias Hess
 	 * @since 19.07.2017
 	 */
-	public final static String VERSION = "1.0.3";
+	public final static String VERSION = "1.0.3a";
 	
 	/**
 	 * version name
@@ -42,12 +42,12 @@ public interface Version {
 	 * @author Tobias Hess
 	 * @since 19.07.2017
 	 */
-	public final static String VERSION_DATE = "2017-07-21";
+	public final static String VERSION_DATE = "2017-10-24";
 
 	/**
 	 * a string containing all the version information to display
 	 * @author Tobias Hess
 	 * @since 19.07.2017
 	 */
-	public final static String VERSION_STRING = VERSION + "(" + VERSION_NAME + ") (" + VERSION_DATE + ")"; 
+	public final static String VERSION_STRING = VERSION + " (" + VERSION_NAME + ") (" + VERSION_DATE + ")"; 
 }
