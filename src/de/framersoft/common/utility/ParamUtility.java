@@ -26,6 +26,11 @@ import java.security.InvalidParameterException;
 public final class ParamUtility {
 
 	/**
+	 * Private constructor so it's not possible to create objects of this class.
+	 */
+	private ParamUtility() {}
+	
+	/**
 	 * Checks if the given number is zero. 
 	 * @param number
 	 * 		The number to check
