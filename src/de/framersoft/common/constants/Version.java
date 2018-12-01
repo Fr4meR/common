@@ -28,21 +28,21 @@ public interface Version {
 	 * @author Tobias Hess
 	 * @since 19.07.2017
 	 */
-	public final static String VERSION = "1.0.3a";
+	public final static String VERSION = "1.1.0";
 	
 	/**
 	 * version name
 	 * @author Tobias Hess
 	 * @since 19.07.2017
 	 */
-	public final static String VERSION_NAME = "Rasfahan";
+	public final static String VERSION_NAME = "Visladhier";
 	
 	/**
 	 * version date
 	 * @author Tobias Hess
 	 * @since 19.07.2017
 	 */
-	public final static String VERSION_DATE = "2017-10-24";
+	public final static String VERSION_DATE = "2018-10-24";
 
 	/**
 	 * a string containing all the version information to display

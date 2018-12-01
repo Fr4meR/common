@@ -19,6 +19,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import de.framersoft.common.dice.DiceTest;
 import de.framersoft.common.password.alphabet.AlphabetTest;
 import de.framersoft.common.password.generator.PasswordGeneratorTest;
 import de.framersoft.common.password.strength.PasswordStrengthTest;
@@ -34,6 +35,8 @@ import de.framersoft.common.utility.ParamUtilityTest;
 	AlphabetTest.class,
 	PasswordGeneratorTest.class,
 	PasswordStrengthTest.class,
+	
+	DiceTest.class,
 	
 	ParamUtilityTest.class
 })
