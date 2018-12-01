@@ -71,21 +71,21 @@ public interface AlphabetConstants {
 	public final static String ALPHABET_ALPHANUMERIC = ALPHABET_A_TO_Z + ALPHABET_NUMBERS;
 	
 	/**
-	 * alphabet: ö, ä, ü
+	 * alphabet: Ã¶, Ã¤, Ã¼
 	 * @author Tobias Hess
 	 * @since 11.07.2017
 	 */
-	public final static String ALPHABET_UMLAUTE_LOWERCASE = "äöü";
+	public final static String ALPHABET_UMLAUTE_LOWERCASE = "Ã¤Ã¶Ã¼";
 	
 	/**
-	 * alphabet: Ö, Ü, Ä
+	 * alphabet: Ã–, Ãœ, Ã„
 	 * @author Tobias Hess
 	 * @since 11.07.2017
 	 */
-	public final static String ALPHABET_UMLAUTE_UPPERCASE = "ÄÖÜ";
+	public final static String ALPHABET_UMLAUTE_UPPERCASE = "Ã„Ã–Ãœ";
 	
 	/**
-	 * alphabet: ö, ä, ü, Ö, Ä, Ü
+	 * alphabet: Ã¶, Ã¤, Ã¼, Ã–, Ã„, Ãœ
 	 * @author Tobias Hess
 	 * @since 11.07.2017
 	 */
@@ -103,7 +103,7 @@ public interface AlphabetConstants {
 	 * @author Tobias Hess
 	 * @since 11.07.2017
 	 */
-	public final static String ALPHABET_SPECIAL_CHARACTERS = "!\"§$%&/()=?+#*~'\\}][{";
+	public final static String ALPHABET_SPECIAL_CHARACTERS = "!\"Â§$%&/()=?+#*~'\\}][{";
 	
 	/**
 	 * alphabet: charecters of a hexadezimal number
