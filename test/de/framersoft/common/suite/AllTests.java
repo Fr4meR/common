@@ -22,6 +22,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import de.framersoft.common.password.alphabet.AlphabetTest;
 import de.framersoft.common.password.generator.PasswordGeneratorTest;
 import de.framersoft.common.password.strength.PasswordStrengthTest;
+import de.framersoft.common.utility.ParamUtilityTest;
 
 /**
  * test suite that runs every test
@@ -32,7 +33,9 @@ import de.framersoft.common.password.strength.PasswordStrengthTest;
 @SuiteClasses({
 	AlphabetTest.class,
 	PasswordGeneratorTest.class,
-	PasswordStrengthTest.class
+	PasswordStrengthTest.class,
+	
+	ParamUtilityTest.class
 })
 public class AllTests {
 
