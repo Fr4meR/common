@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.framersoft.common.test.suite;
+package de.framersoft.common.suite;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import de.framersoft.common.test.password.alphabet.AlphabetTest;
-import de.framersoft.common.test.password.generator.PasswordGeneratorTest;
-import de.framersoft.common.test.password.strength.PasswordStrengthTest;
+import de.framersoft.common.password.alphabet.AlphabetTest;
+import de.framersoft.common.password.generator.PasswordGeneratorTest;
+import de.framersoft.common.password.strength.PasswordStrengthTest;
 
 /**
  * test suite that runs every test

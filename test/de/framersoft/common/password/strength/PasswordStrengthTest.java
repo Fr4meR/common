@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.framersoft.common.test.password.strength;
+package de.framersoft.common.password.strength;
 
 import static org.junit.Assert.*;
 
@@ -51,7 +51,7 @@ public class PasswordStrengthTest {
 		assertEquals(PasswordStrength.PASSWORD_STRENGTH_VERY_WEAK, PasswordStrength.calculatePasswordStrengthRating(PASSWORD_NOT_SAFE));
 		assertEquals(PasswordStrength.PASSWORD_STRENGTH_WEAK, PasswordStrength.calculatePasswordStrengthRating("aaaaaaaaaa"));
 		assertEquals(PasswordStrength.PASSWORD_STRENGTH_MODERATE, PasswordStrength.calculatePasswordStrengthRating("Rondra_02"));
-		assertEquals(PasswordStrength.PASSWORD_STRENGTH_STRONG, PasswordStrength.calculatePasswordStrengthRating("Hesind_ä8"));
+		assertEquals(PasswordStrength.PASSWORD_STRENGTH_STRONG, PasswordStrength.calculatePasswordStrengthRating("Hesind_ï¿½8"));
 		assertEquals(PasswordStrength.PASSWORD_STRENGTH_VERY_STRONG, PasswordStrength.calculatePasswordStrengthRating(PASSWORD_SAFE));
 	}
 	
@@ -98,8 +98,8 @@ public class PasswordStrengthTest {
 		assertEquals(10, PasswordStrength.calculateSpace("123"));
 		assertEquals(68, PasswordStrength.calculateSpace("UpperLowerNumbers123Punctuation.-"));
 		assertEquals(89, PasswordStrength.calculateSpace("UpperLowerNumbers123Punctuation.-AndSpecial{/"));
-		assertEquals(6, PasswordStrength.calculateSpace("öäü"));
-		assertEquals(58, PasswordStrength.calculateSpace("UpperLowerUmlÄüte"));
+		assertEquals(6, PasswordStrength.calculateSpace("ï¿½ï¿½ï¿½"));
+		assertEquals(58, PasswordStrength.calculateSpace("UpperLowerUmlï¿½ï¿½te"));
 	}
 
 }
